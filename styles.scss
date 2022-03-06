@@ -1,0 +1,413 @@
+@import 'typography';
+@import 'icons';
+
+$sm-break: 48em;
+// colors
+$dark-gray: #727272;
+$med-gray: #b4b3b5;
+$light-gray: #eaeaea;
+$body-font: #020202;
+$link-blue: #0076b6; //why do we have both of these blues?
+$byui-blue: #056cb6;
+$screen-medium: 768px;
+// Utility classes
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,body{
+  margin: 0;
+  padding: 0;
+}
+html,body{
+  max-width: 100%;
+}
+img{
+  width: 100%;
+  display: flex;
+  margin: auto;
+  
+}
+a{
+  text-decoration: none;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+header{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: $byui-blue;
+  @media only screen and (min-width: $screen-medium) {
+    height: 7rem;
+  }
+  .icon-byui-logo{
+      font-size:35px;
+      color: white;
+      background-color: $body-font;
+      margin: 0;
+      padding: 15px;
+      @media only screen and (min-width: $screen-medium) {
+        font-size: 550%;
+        padding: .5%;
+        display: flex;
+        margin-left: 5%;
+        position: absolute;
+        top: 5rem;
+      }
+    }
+
+    .site-banner__right{
+      color: white;
+      padding-right:10px;
+      margin-top: 12px;
+      .icon-search, .icon-audience, .icon-menu{
+        color: white;
+        font-size: 35px;
+        padding:1px;
+       
+      }
+      @media only screen and (min-width: $screen-medium) {
+        position: absolute;
+        right: 0;
+        margin: 10px;
+      }
+    }
+}
+
+nav{
+  display: none;
+  position: absolute;
+  right: -35vw;
+  width: 100%;
+  margin:0;
+  transition: right 0.2s ease-in-out;
+  .trigger:checked ~ &{
+    display: flex;
+    right: 0;
+    background-color: #b4b3b5;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+}
+
+.trigger{
+  display: none;
+}
+li{
+  width: 250px;
+  margin-right: 150px;
+  margin-top: 5px;
+  list-style-type: none; 
+  text-align: left;
+  
+}
+#searchDesktop,.icon-magnifying-glass, .submit{
+  display: none;
+  @media only screen and (min-width: $screen-medium) {
+    display: flex;
+  }
+}
+//main content
+main{
+  margin-bottom: 350px;
+}
+.title{
+  border-bottom: black solid 2px;
+  h1{
+    text-align: center;
+    color: black;
+    background-color: $light-gray;
+    font-weight:100;
+    font-size: 22px;
+    margin: 0;
+    padding: 25px;
+  }
+}
+
+.main-grid{
+  max-width: 90%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.image-1{
+  margin-bottom: 20px;
+}
+
+.photos-column{
+  border: solid 0.01px black;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.photos-column a{
+
+  .legend{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-content: center;
+    align-self: center;
+    margin-top: 0;
+    color: $byui-blue;
+    p{
+      margin-left: 20px;
+     
+    }
+    .icon-angle-right{
+      margin-top: 16px;
+      margin-right: 5px;
+    }
+  }
+}
+
+.info{
+  display: flex;
+  justify-content: space-between;
+  border: solid 1px black;
+  border-radius: 10px;
+  background-color: $light-gray;
+  h3{
+    text-align: center;
+    margin: 0;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .icon-triangle-down{
+    margin-top: 20px;
+    margin-right: 20px;
+
+  }
+}
+
+.resources{
+  p.resources-title{
+    padding: 10px;
+    background-color: $dark-gray ;
+    color: white;
+    font-size: 25px;
+    margin-bottom: 0;
+  }
+  .resources-item{
+    border: 1px $dark-gray solid;
+
+    a{
+      background-color: $light-gray;
+      display: flex;
+      justify-content: space-between;
+      color: $byui-blue;
+      &:hover{
+       background-color: $med-gray;
+      }
+      p{
+        margin-left: 20px;
+
+      }
+      .icon-angle-right{
+        margin-top: 17px;
+        margin-right: 17px;
+      }
+    }
+
+  }
+}
+
+.dates{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  h3{
+  
+    color: white;
+    background-color: $byui-blue;
+    padding: 18px;
+    margin: 0;
+}
+}
+.dates-item{
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  justify-content: center;
+  border-bottom: 1px solid $dark-gray;
+  margin: 0;
+  margin-bottom:0;
+  padding: 10px;
+  gap: 0;
+  height: 100%;
+  &:hover{
+    background-color: $med-gray;
+    color: $link-blue
+  }
+  .a{
+    grid-column: 1;
+    justify-self: center;
+    text-align: center;
+    margin: 0;
+    height: 35px;
+  }
+  .trace{
+    grid-column: 2;
+    margin-left: 15px;
+    height: 25px;
+  }
+  .dates-name{
+    grid-column: 3;
+    margin-right: 15px;
+    height: 25px;
+  }
+}
+
+.devotional{
+  border: 1px solid $dark-gray;
+  border-radius: 5px;
+  padding-bottom: 20px;
+  h3{
+    text-align: justify;
+    margin-left: 20px;
+    color: $byui-blue;
+  }
+  p{
+    margin-left: 20px;
+  }
+  p.devotional-date{
+    font-weight: bold;
+  }
+  button{
+    margin-left: 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: $link-blue;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border-color: $link-blue;
+    &:hover{
+      background-color: blue;
+    }
+  }
+}
+
+.newsroom{
+  margin: 20px;
+ 
+ 
+  p.newsroom-date{
+    border-top: solid 1px $dark-gray;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    padding-top: 20px;
+  }
+  a h3{
+    margin-top: 5px;
+    color: $byui-blue;
+  }
+  p.newsroom-text{
+    font-style: italic;
+  }
+  button{
+   
+    padding: 10px;
+    text-align: center;
+    background-color: $link-blue;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border-color: $link-blue;
+    &:hover{
+      background-color: blue;
+    }
+  }
+}
+///ADJUSTING ALL THE GRID FOR LARGER SIZES
+@media only screen and (min-width: $screen-medium) {
+  .main-grid{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 500px 350px 350px;
+    gap: 20px;
+    width: 98%;
+    
+    
+  }
+
+  header{
+    margin-bottom:100px;
+  }
+  .image-1{
+    grid-column: 1;
+    grid-row: 1;
+    height: 200px;
+  }
+
+
+  .photos-colum-grid{
+    
+    grid-column:1;
+    grid-row: 2;
+    display:grid;
+    gap: 20px;
+    
+    .photos-column{
+      min-width: 240px;
+    }
+    .video-thumb{
+      grid-column: 1;
+      grid-row: 1;
+    
+    }
+   .gallery{
+    grid-column: 2;
+    grid-row: 1;
+   }
+   .campus{
+    grid-column: 3;
+    grid-row: 1;
+   }
+  }
+  .newsroom{
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .grid-main-column2{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 25px
+  }
+  .info{
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .resources{
+    grid-column: 1;
+    grid-row: 2
+  }
+  .dates{
+    grid-column: 1;
+    grid-row: 3;
+    height: 100px;
+  }
+  .devotional{
+    margin-top: 140px;
+    grid-column: 1;
+    grid-row: 4;
+  }
+}
